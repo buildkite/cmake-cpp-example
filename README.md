@@ -1,41 +1,11 @@
-# Buildkite CMake ## How it works
+# Buildkite C++ CMake Example
 
-This pipeline builds and tests a simple C++ project using CMake.
-
-- `apt-get update && apt-get install -y cmake g++ make` installs the required build tools
-- `cmake -S . -B build` configures the build directory
-- `cmake --build build` compiles the source files
-- `cd build && ctest --verbose` runs the test suite
-
-## Local Development
-
-To build and test locally:
-
-```bash
-# Install dependencies (macOS)
-brew install cmake
-
-# Build the project
-cmake -S . -B build
-cmake --build build
-
-# Run tests
-cd build && ctest --verbose
-
-# Run the main executable
-./build/hello
-```
-
-## Setup
-
-You'll need a Buildkite agent with `cmake`, `make`, and a C++ compiler installed. You can install these via your Docker image or agent machine.
-
-[![Build status](https://badge.buildkite.com/FIXME.svg?branch=main)](https://buildkite.com/buildkite/cmake-cpp-example/builds/latest?branch=main)
+[![Build status](https://badge.buildkite.com/f9b46d96710d254e34229ba68bb8797d0b8f1e64ac5abfecb9.svg?branch=main)](https://buildkite.com/buildkite/cmake-cpp-example/builds/latest?branch=main)
 [![Add to Buildkite](https://img.shields.io/badge/Add%20to%20Buildkite-14CC80)](https://buildkite.com/new)
 
-This repository is an example [Buildkite](https://buildkite.com/) pipeline for building and testing a C++ project using [CMake](https://cmake.org/).
+This repository demonstrates a [Buildkite](https://buildkite.com/) pipeline that builds and tests a simple C++ project using [CMake](https://cmake.org/).
 
-👉 **See this example in action:** [buildkite/cmake-cpp-example](https://buildkite.com/buildkite/cmake-cpp-example/builds/latest?brnach=main)
+👉 **See this example in action:** [buildkite/cmake-cpp-example](https://buildkite.com/buildkite/cmake-cpp-example/builds/latest?branch=main)
 
 See the full [Getting Started Guide](https://buildkite.com/docs/guides/getting-started) for step-by-step instructions on how to get this running, or try it yourself:
 
@@ -46,17 +16,29 @@ See the full [Getting Started Guide](https://buildkite.com/docs/guides/getting-s
 </a>
 
 <!-- docs:start -->
+
 ## How it works
 
-This pipeline builds and tests a simple C++ project using CMake.
+This example:
+- Builds a simple C++ app using `CMakeLists.txt` and a basic `main.cpp` file
+- Defines a test in `test/test_hello.cpp`, run using [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html)
+- Uses a `.buildkite/pipeline.yml` to run:
+  - `cmake -S . -B build`
+  - `cmake --build build`
+  - `ctest --test-dir build --verbose`
+- Runs on a Buildkite-hosted agent with CMake and a C++ compiler preinstalled—no Docker setup needed 🎉
 
-- `cmake -S . -B build` configures the build directory.
-- `cmake --build build` compiles the source files.
-- `ctest --test-dir build` runs the test suite.
+## Requirements
 
-## Setup
+- A Buildkite agent with:
+  - `cmake`
+  - `make`
+  - A C++ compiler like `g++` or `clang++`
 
-You’ll need a Buildkite agent with `cmake`, `make`, and a C++ compiler installed. You can install these via your Docker image or agent machine.
+  _(This example uses a **Buildkite-hosted agent image** with all required tools preinstalled—no extra setup needed!)_
+
+> 💡 The default agent queue is set in the Buildkite **Pipeline Settings → Steps** UI,
+> so there's no need to specify it inside the `.buildkite/pipeline.yml` file.
 
 <!-- docs:end -->
 
