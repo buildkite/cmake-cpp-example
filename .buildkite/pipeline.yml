@@ -1,6 +1,7 @@
 steps:
   - label: ":cmake: Build & Test"
     commands:
+      - rm -rf build        # ensures no stale cache from previous run
       - cmake -S . -B build
       - cmake --build build
       - ctest --test-dir build --verbose
