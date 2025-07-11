@@ -1,0 +1,19 @@
+Start testing: Jul 11 03:56 UTC
+----------------------------------------------------------
+1/1 Testing: RunTest
+1/1 Test: RunTest
+Command: "/app/build/test_hello"
+Directory: /app/build
+"RunTest" start time: Jul 11 03:56 UTC
+Output:
+----------------------------------------------------------
+Test passed!
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"RunTest" end time: Jul 11 03:56 UTC
+"RunTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jul 11 03:56 UTC

@@ -2,10 +2,9 @@ steps:
   - label: ":cmake: Build & Test"
     plugins:
       - docker#v3.10.0:
-          image: "cpp-cmake-example"
-          build: .                    # This builds your local Dockerfile
+          build: .
           shell: ["/bin/bash", "-e", "-c"]
     commands:
       - cmake -S . -B build
       - cmake --build build
-      - ctest --test-dir build
+      - ctest --test-dir build --verbose
