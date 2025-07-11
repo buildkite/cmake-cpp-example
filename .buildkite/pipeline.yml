@@ -1,8 +1,7 @@
 steps:
-  - label: ":cmake: CMake Build & Test"
+  - label: ":cmake: Build & Test"
     plugins:
       - docker#v3.10.0:
-          image: cpp-cmake-example
           build:
             context: .
             dockerfile: Dockerfile
@@ -10,4 +9,4 @@ steps:
     commands:
       - cmake -S . -B build
       - cmake --build build
-      - ctest --test-dir build --verbose
+      - cd build && ctest --verbose
