@@ -1,11 +1,8 @@
 steps:
   - label: ":cmake: Build & Test"
-    plugins:
-      - docker#v3.10.0:
-          build: .
-          image: "cmake-cpp-example:latest"
-          shell: ["/bin/bash", "-e", "-c"]
     commands:
       - cmake -S . -B build
       - cmake --build build
-      - cd build && ctest --verbose
+      - ctest --test-dir build --verbose
+    agents:
+      queue: "cmake-example"
