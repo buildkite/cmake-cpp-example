@@ -4,6 +4,7 @@ steps:
       - docker#v3.10.0:
           build: .
           image: "cpp-cmake-example"
+          tag: "cpp-cmake-example:latest"
           shell: ["/bin/bash", "-e", "-c"]
     commands:
       - cmake -S . -B build
