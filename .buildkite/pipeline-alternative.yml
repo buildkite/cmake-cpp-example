@@ -2,10 +2,10 @@ steps:
   - label: ":cmake: Build & Test"
     plugins:
       - docker#v3.10.0:
-          build: .
-          image: "cmake-cpp-example:latest"
+          image: "debian:bullseye"
           shell: ["/bin/bash", "-e", "-c"]
     commands:
+      - apt-get update && apt-get install -y cmake g++ make
       - cmake -S . -B build
       - cmake --build build
       - cd build && ctest --verbose
