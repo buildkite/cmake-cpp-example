@@ -26,7 +26,7 @@ This example:
   - `cmake -S . -B build`
   - `cmake --build build`
   - `ctest --test-dir build --verbose`
-- Runs on a Buildkite-hosted agent with CMake and a C++ compiler preinstalled—no Docker setup needed 🎉
+- Runs on a [Buildkite-hosted agent](https://buildkite.com/docs/pipelines/hosted-agents) with CMake and a C++ compiler preinstalled - no Docker setup needed 🎉
 
 ## Requirements
 
@@ -35,7 +35,7 @@ This example:
   - `make`
   - A C++ compiler like `g++` or `clang++`
 
-  _(This example uses a **Buildkite-hosted agent image** with all required tools preinstalled—no extra setup needed!)_
+  _(This example uses a **[Buildkite-hosted agent image (Linux)](https://buildkite.com/docs/pipelines/hosted-agents/linux#agent-images)** with all required tools preinstalled - no extra setup needed!)_
 
 > 💡 The default agent queue is set in the Buildkite **Pipeline Settings → Steps** UI,
 > so there's no need to specify it inside the `.buildkite/pipeline.yml` file.
