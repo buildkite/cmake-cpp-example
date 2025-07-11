@@ -1,0 +1,6 @@
+steps:
+  - label: ":cmake: Build & Test"
+    commands:
+      - "cmake -S . -B build"
+      - "cmake --build build"
+      - "ctest --test-dir build"

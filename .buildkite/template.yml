@@ -1,0 +1,12 @@
+name: "CMake C++ Example"
+description: "An example pipeline that builds and tests a C++ project using CMake."
+emoji: ":cmake:"
+color: "#00589C"
+languages:
+  - "C++"
+steps:
+  - label: ":cmake: Build & Test"
+    commands:
+      - "cmake -S . -B build"
+      - "cmake --build build"
+      - "ctest --test-dir build"
