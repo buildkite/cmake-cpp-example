@@ -1,24 +1,25 @@
-# Build directories
+# === Build directories ===
 build/
 cmake-build-*/
 
-# IDE files
+# === IDE files ===
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS files
+# === OS-specific files ===
 .DS_Store
 Thumbs.db
 
-# Compiled binaries
+# === Compiled binaries ===
 *.exe
 *.out
 *.app
 
-# CMake files
+# === CMake generated files ===
+CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles/
 CMakeScripts/
@@ -26,4 +27,6 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
+CMakeUserPresets.json
 _deps/
+*-prefix/
